@@ -61,7 +61,8 @@ export const theme = makeTheme({
       boxShadow: '0 2px 15px rgba(255, 255, 255, 0.2)',
     },
     textInput: {
-      width: ['80%', 17],
+      width: ['100%', 17],
+      flexGrow: 1,
       color: 'text',
       fontWeight: 'bold',
       fontSize: [1, 2],
@@ -97,6 +98,9 @@ export const theme = makeTheme({
       color: 'text',
       fontSize: 0,
     },
+  },
+  types: {
+    reactNativeTypesOnly: true,
   },
 });
 
