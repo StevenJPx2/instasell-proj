@@ -15,7 +15,7 @@ export default function FormButtons({
 }: {
   steps: string[];
   step: typeof steps[number];
-  setLeftOrRight: React.Dispatch<React.SetStateAction<"left" | "right">>;
+  setLeftOrRight: React.Dispatch<React.SetStateAction<'left' | 'right'>>;
   setStep: React.Dispatch<React.SetStateAction<typeof step>>;
   validate: () => void;
 }) {
@@ -36,7 +36,7 @@ export default function FormButtons({
                 width: [9, 13],
               }}
               onPress={() => {
-                setLeftOrRight('right');
+                setLeftOrRight('left');
                 setStep(steps[steps.indexOf(step) - 1]);
               }}>
               <Icon
@@ -55,7 +55,7 @@ export default function FormButtons({
             px: 4,
           }}
           onPress={() => {
-            setLeftOrRight('left');
+            setLeftOrRight('right');
             validate();
           }}>
           <View

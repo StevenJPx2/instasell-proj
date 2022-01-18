@@ -1,7 +1,10 @@
 import {atom} from 'nanostores';
 
-export const firstName = atom<string | undefined>(undefined);
+export interface User {
+  firstName: string;
+  phoneNumber: string;
+  address: string;
+}
 
-export const setFirstName = (newFirstName: string): void => {
-  firstName.set(newFirstName);
-};
+export const firstName = atom<string | undefined>(undefined);
+export const user = atom<User | undefined>(undefined);

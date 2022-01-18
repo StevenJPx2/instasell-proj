@@ -24,7 +24,7 @@ export default function OTPNumberForm({
     <View>
       {step === 'phoneNumber' && (
         <FormInput
-          keyIn="phone"
+          keyIn={step}
           delay={initialDelay}
           inputPrefix={
             <P
@@ -43,23 +43,23 @@ export default function OTPNumberForm({
               +91
             </P>
           }
-          error={!values.phoneNumber.isValid}
+          error={!values[step].isValid}
           leftOrRight="left"
           animateFn={() => setInitialDelay(0)}
           focusFn={() =>
             setValues({
               ...values,
-              phoneNumber: {...values.phoneNumber, isValid: true},
+              [step]: {...values[step], isValid: true},
             })
           }
           changeTextFn={value =>
             setValues({
               ...values,
-              phoneNumber: {...values.phoneNumber, value},
+              [step]: {...values[step], value},
             })
           }
           inputLabel="Enter your number:"
-          inputValue={values.phoneNumber.value}
+          inputValue={values[step].value}
           inputStyle={{
             width: ['77%', 17],
             borderTopLeftRadius: 0,
@@ -71,20 +71,20 @@ export default function OTPNumberForm({
 
       {step === 'otp' && (
         <FormInput
-          keyIn="otp"
-          error={!values.otp.isValid}
+          keyIn={step}
+          error={!values[step].isValid}
           leftOrRight={leftOrRight}
           focusFn={() =>
             setValues({
               ...values,
-              otp: {...values.otp, isValid: true},
+              [step]: {...values[step], isValid: true},
             })
           }
           changeTextFn={value =>
-            setValues({...values, otp: {...values.otp, value}})
+            setValues({...values, [step]: {...values[step], value}})
           }
           inputLabel="Enter your OTP:"
-          inputValue={values.otp.value}
+          inputValue={values[step].value}
           errorLabel="The OTP you have given is not valid."
         />
       )}

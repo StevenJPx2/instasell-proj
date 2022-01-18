@@ -1,10 +1,14 @@
 import * as React from 'react';
 
+import {AnimatePresence} from 'moti';
+import {useState} from 'react';
+import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
+import firestore from '@react-native-firebase/firestore';
+import {user, User} from '../constants/Store';
+
 import {SignInNavigationProps} from '../types';
 import Background from '../components/Background';
 import Spacer from '../components/Spacer';
-import {AnimatePresence} from 'moti';
-import {useState} from 'react';
 import {theme} from '../constants/Theme';
 import FormButtons from '../components/FormButtons';
 import Header from '../components/Header';
@@ -21,24 +25,69 @@ export default function SignInScreen({
   });
   const [leftOrRight, setLeftOrRight] = useState<'left' | 'right'>('right');
   const [step, setStep] = useState<keyof typeof values>('phoneNumber');
+  const [authConfirm, setAuthConfirm] =
+    useState<FirebaseAuthTypes.ConfirmationResult | null>(null);
+
+  const confirmPhoneNumber = () => {
+    if (values.phoneNumber.value.length !== 10) {
+      setValues({
+        ...values,
+        phoneNumber: {...values.phoneNumber, isValid: false},
+      });
+    } else {
+      firestore()
+        .collection('users')
+        .doc(values.phoneNumber.value)
+        .get()
+        .then(({exists}) => {
+          if (exists) {
+            auth()
+              .signInWithPhoneNumber('+91' + values.phoneNumber.value)
+              .then(confirm => {
+                setAuthConfirm(confirm);
+                setStep('otp');
+              })
+              .catch(err => {
+                console.error(err);
+              });
+          } else {
+            setValues({
+              ...values,
+              phoneNumber: {...values.phoneNumber, isValid: false},
+            });
+          }
+        });
+    }
+  };
+
+  const confirmOTP = () => {
+    authConfirm!
+      .confirm(values.otp.value)
+      .then(() => signIn())
+      .catch(() =>
+        setValues({
+          ...values,
+          otp: {...values.otp, isValid: false},
+        }),
+      );
+  };
+
+  const signIn = () => {
+    firestore()
+      .collection('users')
+      .doc(values.phoneNumber.value)
+      .get()
+      .then(u => {
+        user.set(u.data() as User);
+        navigation.push('User');
+      });
+  };
 
   const validate = () => {
     step === 'phoneNumber'
-      ? values.phoneNumber.value.length !== 10
-        ? setValues({
-            ...values,
-            phoneNumber: {...values.phoneNumber, isValid: false},
-          })
-        : setStep('otp')
-      : step === 'otp' && values.otp.value !== '0000'
-      ? setValues({
-          ...values,
-          otp: {...values.otp, isValid: false},
-        })
-      : signIn();
+      ? confirmPhoneNumber()
+      : step === 'otp' && confirmOTP();
   };
-
-  const signIn = () => {};
 
   return (
     <Background sx={{alignItems: 'flex-start'}}>

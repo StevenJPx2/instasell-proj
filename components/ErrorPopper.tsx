@@ -22,7 +22,7 @@ export default function ErrorPopper({
             bg: 'white',
             borderRadius: 1,
             my: 4,
-            width: ['80%', 17],
+            width: [340, 16],
             flexDirection: 'row',
           }}>
           <View
@@ -32,11 +32,13 @@ export default function ErrorPopper({
               justifyContent: 'center',
               borderRightWidth: 1,
               borderColor: '#ccc',
-              width: 11,
+              width: 10,
             }}>
             <Icon name="alert" size={28} color="red" />
           </View>
-          <P sx={{color: '#555', px: 4}}>{errorLabel}</P>
+          <P sx={{color: '#555', px: 4, flexWrap: 'wrap', width: '70%'}}>
+            {errorLabel}
+          </P>
         </MotiView>
       )}
     </AnimatePresence>

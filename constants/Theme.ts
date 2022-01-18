@@ -92,7 +92,7 @@ export const theme = makeTheme({
       color: 'text',
       fontWeight: '500',
       fontSize: [0, 2],
-      my: ['18px', 5],
+      my: [4, 5],
     },
     p: {
       color: 'text',

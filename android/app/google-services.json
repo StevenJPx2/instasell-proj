@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "302464896426",
+    "project_id": "instasell-test",
+    "storage_bucket": "instasell-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:302464896426:android:e6bdf0b856097d0616afd3",
+        "android_client_info": {
+          "package_name": "com.instasellproj"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "302464896426-13acmm8cd79l61c38mnv6orksaet2l8k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.instasellproj",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "302464896426-7tttdal8n3is69f118q33nssjm20seqb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzbIP8GGyuUyT0TwrruZdzeuelB76lXbU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "302464896426-7tttdal8n3is69f118q33nssjm20seqb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

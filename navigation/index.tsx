@@ -9,7 +9,7 @@ import * as React from 'react';
 import HomeScreen from '../screens/HomeScreen';
 import SignUpScreen from '../screens/SignUpScreen';
 import SignInScreen from '../screens/SignInScreen';
-import SwipeScreen from '../screens/SwipeScreen';
+import UserScreen from '../screens/UserScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
 
 import {RootStackParamList} from '../types';
@@ -32,7 +32,7 @@ function RootNavigator() {
       <Stack.Screen name="Root" component={HomeScreen} />
       <Stack.Screen name="SignUp" component={SignUpScreen} />
       <Stack.Screen name="SignIn" component={SignInScreen} />
-      <Stack.Screen name="Swipe" component={SwipeScreen} />
+      <Stack.Screen name="User" component={UserScreen} />
       <Stack.Screen
         name="NotFound"
         component={NotFoundScreen}

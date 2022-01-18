@@ -14,9 +14,12 @@ export default function Header({
   text,
 }: {
   navigation: Pick<
-    NativeStackScreenProps<RootStackParamList, any>,
+    NativeStackScreenProps<RootStackParamList, keyof RootStackParamList>,
     'navigation'
-  >[keyof Pick<NativeStackScreenProps<RootStackParamList, any>, 'navigation'>];
+  >[keyof Pick<
+    NativeStackScreenProps<RootStackParamList, keyof RootStackParamList>,
+    'navigation'
+  >];
   text: string;
 }) {
   const sx = useSx();

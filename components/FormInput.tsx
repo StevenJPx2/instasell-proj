@@ -14,6 +14,7 @@ import ErrorPopper from './ErrorPopper';
 export default function FormInput({
   delay = 0,
   leftOrRight = 'left',
+  autoFocus = false,
   inputPrefix,
   error,
   animateFn,
@@ -25,18 +26,19 @@ export default function FormInput({
   inputValue,
   inputLabel,
 }: {
+  keyIn: string;
+  inputLabel: string;
   delay?: number;
+  leftOrRight?: 'left' | 'right';
   inputPrefix?: JSX.Element | null;
   error?: boolean;
-  leftOrRight?: 'left' | 'right';
-  animateFn?: () => void;
-  inputStyle?: SxProp;
-  keyIn: string;
-  focusFn: () => void;
-  changeTextFn: (arg0: string) => void;
-  inputValue: string;
-  inputLabel: string;
   errorLabel?: string;
+  animateFn?: () => void;
+  focusFn?: () => void;
+  changeTextFn?: (arg0: string) => void;
+  inputStyle?: SxProp;
+  inputValue?: string;
+  autoFocus?: boolean;
 }) {
   return (
     <AnimatePresence exitBeforeEnter>
@@ -56,11 +58,13 @@ export default function FormInput({
             onFocus={focusFn}
             onChangeText={changeTextFn}
             autoComplete="tel"
-            autoFocus={true}
+            autoFocus={autoFocus}
           />
         </View>
 
-        {(error !== undefined && errorLabel !== undefined) && <ErrorPopper {...{errorLabel, error}} />}
+        {error !== undefined && errorLabel !== undefined && (
+          <ErrorPopper {...{errorLabel, error}} />
+        )}
       </MotiView>
     </AnimatePresence>
   );
