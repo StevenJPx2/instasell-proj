@@ -70,7 +70,7 @@ export default function SignInScreen({
           navigation.goBack();
         }}>
         <Ionicons
-          name="chevron-back-circle"
+          name="arrow-dropleft-circle"
           color="white"
           style={sx({fontSize: [4, 7]})}
         />
@@ -150,12 +150,12 @@ export default function SignInScreen({
                         alignItems: 'center',
                         justifyContent: 'center',
                         borderRightWidth: 1,
-                        borderColor: '#cccccc',
+                        borderColor: '#ccc',
                         width: '60px',
                       }}>
                       <Ionicons name="alert-circle" size={28} color="red" />
                     </View>
-                    <P sx={{color: '#555555', px: 4}}>
+                    <P sx={{color: '#555', px: 4}}>
                       The phone you have given is not valid.
                     </P>
                   </MotiView>
@@ -272,9 +272,9 @@ export default function SignInScreen({
               }}>
               <P>Continue</P>
               <Ionicons
-                name="arrow-forward"
+                name="arrow-round-forward"
                 color="white"
-                style={sx({fontSize: [1, 4], ml: 3})}
+                style={sx({fontSize: [1, 3], ml: 3})}
               />
             </View>
           </ButtonTinted>

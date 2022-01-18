@@ -69,7 +69,7 @@ export default function SignUpScreen({
           navigation.goBack();
         }}>
         <Ionicons
-          name="chevron-back-circle"
+          name="arrow-dropleft-circle"
           color="white"
           style={sx({fontSize: [4, 7]})}
         />
@@ -98,6 +98,7 @@ export default function SignUpScreen({
                     borderTopRightRadius: 0,
                     borderBottomRightRadius: 0,
                     width: 11,
+                    textAlign: 'center',
                     justifyContent: 'center',
                     alignItems: 'center',
                     color: 'rgba(255, 255, 255, 0.5)',
@@ -139,7 +140,7 @@ export default function SignUpScreen({
                       bg: 'white',
                       borderRadius: 1,
                       my: 4,
-                      width: ['100%', 17],
+                      width: ['82%', 17],
                       flexDirection: 'row',
                     }}>
                     <View
@@ -149,9 +150,9 @@ export default function SignUpScreen({
                         justifyContent: 'center',
                         borderRightWidth: 1,
                         borderColor: '#ccc',
-                        width: '60px',
+                        width: 11,
                       }}>
-                      <Ionicons name="alert-circle" size={28} color="red" />
+                      <Ionicons name="alert" size={28} color="red" />
                     </View>
                     <P sx={{color: '#555', px: 4}}>
                       The phone you have given is not valid.
@@ -168,6 +169,7 @@ export default function SignUpScreen({
             <MotiView {...slideInFromRight()} key="otp">
               <H3>Enter the OTP:</H3>
               <TextInput
+                sx={{width: '100%'}}
                 keyboardType="number-pad"
                 value={values.otp.value}
                 onFocus={() =>
@@ -272,7 +274,7 @@ export default function SignUpScreen({
         <MotiView {...popIn(350)} sx={{ml: 'auto'}}>
           <ButtonTinted
             sx={{
-              px: '12px',
+              px: 4,
             }}
             onPress={() => {
               step === 'phoneNumber'
@@ -291,12 +293,17 @@ export default function SignUpScreen({
                   : setStep('firstName')
                 : step === 'firstName' && createUser();
             }}>
-            <View sx={{flexDirection: 'row', justifyContent: 'center'}}>
-              <P>Continue</P>
+            <View
+              sx={{
+                flexDirection: 'row',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
+              <P sx={{alignSelf: 'center'}}>Continue</P>
               <Ionicons
-                name="arrow-forward"
+                name="arrow-round-forward"
                 color="white"
-                style={sx({fontSize: [2, 3], ml: 3})}
+                style={sx({fontSize: [1, 3], ml: 3})}
               />
             </View>
           </ButtonTinted>

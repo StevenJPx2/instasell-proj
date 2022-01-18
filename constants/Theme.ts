@@ -15,16 +15,18 @@ export const theme = makeTheme({
     shadows: ['0 0 20px rgba(255, 255, 255, 0.4)'],
   },
   fonts: {
-    root: 'inter',
+    root: 'Inter-Regular',
   },
   customFonts: {
     inter: {
       default: 'Inter-Regular',
-      medium: 'Inter-Medium',
-      semibold: 'Inter-SemiBold',
-      bold: 'Inter-Bold',
-      extrabold: 'Inter-ExtraBold',
-      black: 'Inter-Black',
+      normal: 'Inter-Regular',
+      400: 'Inter-Regular',
+      500: 'Inter-Medium',
+      600: 'Inter-SemiBold',
+      700: 'Inter-Bold',
+      800: 'Inter-ExtraBold',
+      900: 'Inter-Black',
     },
   },
   space: [0, 2, 4, 8, 16, 32, 64, 72, 80, 128, 256, 512],
@@ -75,19 +77,19 @@ export const theme = makeTheme({
   text: {
     h1: {
       color: 'text',
-      fontWeight: 'medium',
+      fontWeight: '500',
       fontSize: [3, null, 6],
       my: 1,
     },
     h3: {
       color: 'text',
-      fontWeight: 'medium',
+      fontWeight: '500',
       fontSize: [1, null, 3],
       mb: 3,
     },
     h6: {
       color: 'text',
-      fontWeight: 'medium',
+      fontWeight: '500',
       fontSize: [0, 2],
       my: ['18px', 5],
     },

@@ -22,7 +22,7 @@ export default function HomeScreen({
         {' '}
         Welcome to
       </H1>
-      <H1 {...popIn(150)} sx={{fontWeight: 'extrabold', textAlign: 'center'}}>
+      <H1 {...popIn(150)} sx={{fontWeight: '800', textAlign: 'center'}}>
         Instasell Test!
       </H1>
       <Spacer />
@@ -32,7 +32,7 @@ export default function HomeScreen({
             onPress={() => {
               navigation.push('SignUp');
             }}>
-            <P sx={{color: 'black'}}>Sign Up</P>
+            <P sx={{color: 'black', my: 0}}>Sign Up</P>
           </Button>
         </MotiView>
 
@@ -42,7 +42,7 @@ export default function HomeScreen({
             onPress={() => {
               navigation.push('SignIn');
             }}>
-            <P>Sign In</P>
+            <P sx={{my: 0}}>Sign In</P>
           </ButtonTinted>
         </MotiView>
       </View>
