@@ -113,6 +113,7 @@ export default function SignUpScreen({
           <FormInput
             keyIn={step}
             leftOrRight={leftOrRight}
+            autoComplete="name"
             focusFn={() =>
               setValues({
                 ...values,
@@ -134,6 +135,7 @@ export default function SignUpScreen({
           <FormInput
             keyIn={step}
             leftOrRight="right"
+            autoComplete="street-address"
             focusFn={() =>
               setValues({
                 ...values,

@@ -10,11 +10,14 @@ import {AnimatePresence} from 'moti';
 import {View, SxProp} from 'dripsy';
 import {TextInput} from '../constants/Theme';
 import ErrorPopper from './ErrorPopper';
+import {KeyboardTypeOptions, TextInputAndroidProps} from 'react-native';
 
 export default function FormInput({
   delay = 0,
   leftOrRight = 'left',
   autoFocus = false,
+  keyboardType = 'default',
+  autoComplete = 'off',
   inputPrefix,
   error,
   animateFn,
@@ -28,6 +31,8 @@ export default function FormInput({
 }: {
   keyIn: string;
   inputLabel: string;
+  autoComplete?: TextInputAndroidProps['autoComplete'];
+  keyboardType?: KeyboardTypeOptions;
   delay?: number;
   leftOrRight?: 'left' | 'right';
   inputPrefix?: JSX.Element | null;
@@ -53,11 +58,11 @@ export default function FormInput({
           {inputPrefix}
           <TextInput
             sx={inputStyle}
-            keyboardType="phone-pad"
+            keyboardType={keyboardType}
             value={inputValue}
             onFocus={focusFn}
             onChangeText={changeTextFn}
-            autoComplete="tel"
+            autoComplete={autoComplete}
             autoFocus={autoFocus}
           />
         </View>

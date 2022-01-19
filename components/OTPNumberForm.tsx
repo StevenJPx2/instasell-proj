@@ -46,6 +46,8 @@ export default function OTPNumberForm({
           error={!values[step].isValid}
           leftOrRight="left"
           animateFn={() => setInitialDelay(0)}
+          keyboardType="phone-pad"
+          autoComplete="tel"
           focusFn={() =>
             setValues({
               ...values,
@@ -74,6 +76,8 @@ export default function OTPNumberForm({
           keyIn={step}
           error={!values[step].isValid}
           leftOrRight={leftOrRight}
+          keyboardType="number-pad"
+          autoComplete="sms-otp"
           focusFn={() =>
             setValues({
               ...values,
